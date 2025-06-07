@@ -26,8 +26,8 @@ Ensure the following are installed and properly configured on your system:
 
 
 ## Usage:
-Import following API collections in your postman:-
-1. [tokengenerateApi](https://api.postman.com/collections/29000107-fcf4316c-0174-433b-872d-7fd148d69280?access_key=PMAT-01JX5C3SBACR3X5EY8SMF9GH9W)
+Import following API curls in your postman:-
+1. Token generator API postman curl [here](#collection)
 
 2. The Chat API uses WebSocket connections for real-time communication. Since this is a WebSocket-based JSON API, you cannot share it directly as Postman's standard HTTP request functionality. You can follow websocketService ([here](#websocketService)) from service discription section below to use the same in your local postman.
 
@@ -81,6 +81,7 @@ This are the following dummy usernames and there password i have hardcoded for t
 
 ### Use the following curl from your postman to check if token is generated successffuly or not
 Request:-
+<a id="collection"></a>
 ```
 curl --location --request GET 'localhost:8000/login' \
 --header 'Content-Type: application/json' \
