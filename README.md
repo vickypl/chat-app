@@ -18,9 +18,9 @@ Ensure the following are installed and properly configured on your system:
 - Postman
 - Golang (with appropriate `GOPATH` and `GOROOT` set)
 
-## To run in one automatically using single command:
-1. Clone the repo using command: `https://github.com/vickypl/chat-app.git`
-2. Nevigate to cloned directory: `cd chap-app`
+## To run in one automatically using minimum command:
+1. Clone the repo using commands: `https://github.com/vickypl/chat-app.git`
+2. Nevigate to cloned directory: `cd chat-app`
 3. Execute command: `docker-compose -d` in your terminal.
 (This will automatically setup all required containers)
 
