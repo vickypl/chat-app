@@ -1,0 +1,66 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: testuser1
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: chatapp
+    networks:
+      - my-chat-app-net
+
+  kafka:
+    image: krisgeus/docker-kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      LISTENERS: PLAINTEXT://0.0.0.0:9092
+      ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      LOG_RETENTION_HOURS: 1
+    networks:
+      - my-chat-app-net
+
+  socketService:
+    build:
+      context: ./websocketService
+      dockerfile: dockerfile
+    image: websocketservice
+    container_name: websocketService
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_HOST: kafka:9092
+    networks:
+      - my-chat-app-net
+    depends_on:
+      - kafka
+
+  persistentService:
+    build:
+      context: ./persistenceService
+      dockerfile: dockerfile
+    image: persistentservice 
+    container_name: persistentService
+    networks:
+      - my-chat-app-net
+    depends_on:
+      - postgres
+      - kafka
+
+  authService:
+    build:
+      context: ./authenticationService
+      dockerfile: dockerfile
+    image: authenticationservice
+    container_name: authService
+    ports:
+      - "8000:8000"
+    networks:
+      - my-chat-app-net
+
+networks:
+  my-chat-app-net:
+    driver: bridge

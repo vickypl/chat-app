@@ -1,16 +1,11 @@
-module github.com/vickypl/chat-app
+module github.com/vickypl/chat-app/persistenceService
 
 go 1.21.0
 
 require (
 	github.com/gofrs/uuid v4.4.0+incompatible
-	github.com/golang-jwt/jwt v3.2.2+incompatible
-	github.com/google/uuid v1.6.0
-	github.com/gorilla/mux v1.8.1
-	github.com/gorilla/websocket v1.5.3
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/joho/godotenv v1.5.1
-	github.com/pkg/errors v0.8.1
 	github.com/segmentio/kafka-go v0.4.48
 )
 

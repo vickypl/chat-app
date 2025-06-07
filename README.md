@@ -18,8 +18,20 @@ Ensure the following are installed and properly configured on your system:
 - Postman
 - Golang (with appropriate `GOPATH` and `GOROOT` set)
 
+## To run in one automatically using single command:
+1. Clone the repo using command: `https://github.com/vickypl/chat-app.git`
+2. Nevigate to cloned directory: `cd chap-app`
+3. Execute command: `docker-compose -d` in your terminal.
+(This will automatically setup all required containers)
 
-## Enviroment setup
+
+## Usage:
+Import following API collections in your postman:-
+1. [tokengenerateApi](https://api.postman.com/collections/29000107-fcf4316c-0174-433b-872d-7fd148d69280?access_key=PMAT-01JX5C3SBACR3X5EY8SMF9GH9W)
+
+2. The Chat API uses WebSocket connections for real-time communication. Since this is a WebSocket-based JSON API, you cannot share it directly as Postman's standard HTTP request functionality. You can follow websocketService ([here](#websocketService)) from service discription section below to use the same in your local postman.
+
+## Enviroment setup - manual setup
 ***PostgressSQL setup***:- \
 Run following commands on your terminal
 to setup postgressDB on your local.
@@ -84,6 +96,7 @@ Response(example):-
 }
 ```
 ---
+<a id="websocketService"></a>
 2. **websocketService**: This service is reponsible for handling websocket connections and user realtime chats, It contains a `configs/.env` directory containing various enviroment varibles required to run this service. Apart from handling messages exchanges this service publishes the messages on a kafka topic `messages` to store the messages persistently.
 #### steps to run the service:-
 1. Open another terminal(say T2) at path chat-app directory.

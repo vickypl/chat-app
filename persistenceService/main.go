@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/joho/godotenv"
@@ -77,6 +78,10 @@ func getDBConnection() (*pgxpool.Pool, error) {
 	sslMode := os.Getenv("DB_SSL_MODE")
 
 	connStr := dbDialect + "://" + dbUser + ":" + dbPassword + "@" + dbhost + ":" + dbPort + "/" + dbName + "?sslmode=" + sslMode
+
+	// to let pg container up and ready
+	time.Sleep(5 * time.Second)
+
 	return pgxpool.Connect(context.Background(), connStr)
 }
 
