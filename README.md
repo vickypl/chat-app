@@ -21,7 +21,7 @@ Ensure the following are installed and properly configured on your system:
 ## To run in one automatically using minimum command:
 1. Clone the repo using commands: `https://github.com/vickypl/chat-app.git`
 2. Nevigate to cloned directory: `cd chat-app`
-3. Execute command: `docker-compose -d` in your terminal.
+3. Execute command: `docker-compose up -d` in your terminal.
 (This will automatically setup all required containers)
 
 
