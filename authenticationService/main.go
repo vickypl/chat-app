@@ -86,6 +86,6 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/login", authHandler.loginHandler)
-	log.Println("WebSocketChat server started on :8000")
+	log.Println("Authentication server started on :8000")
 	log.Fatal(http.ListenAndServe(":8000", router))
 }
