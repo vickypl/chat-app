@@ -18,6 +18,7 @@ Ensure the following are installed and properly configured on your system:
 - Postman
 - Golang (with appropriate `GOPATH` and `GOROOT` set)
 
+<a id="dockerway"></a>
 ## To run in one automatically using minimum command:
 1. Clone the repo using commands: `https://github.com/vickypl/chat-app.git`
 2. Nevigate to cloned directory: `cd chat-app`
@@ -138,6 +139,29 @@ For example: if we have given MAX_RETRY_VALUE as 3, it will re-publish the messa
 2. Nevigate inside persistenceService directory using 
    command `cd persistenceService`.
 3. Run the app using: `go run main.go` (This will start the consumer)
+
+---
+
+## Optional way:-
+### Kubernates deployement
+
+#### Prerequisites
+1. docker
+2. minikube
+3. helm
+
+Note: Required images of apps for helm are deployed in public repository on docker hub [here](https://hub.docker.com/repositories/vicky54)
+
+### Steps:-
+1. Clone the repo.
+2. Nevigate inside chat-app directory `cd chat-app`
+3. Use command: `helm install chat-app ./helmchart`
+
+<br> This will deploye required mircroservices on the local kubernates cluster. Can be verified on local kubernates dashboard by using command: `minikube dashboard`
+
+Note: host and ports will be needed to use the APIs if using via kubernates cluster.
+
+Recommended: Use the the docker way on local as mentioned [here](#dockerway)
 
 ---
 #### End to end flow for testing:-
