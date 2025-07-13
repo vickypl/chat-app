@@ -1,8 +1,6 @@
 
 # Chat-App
 
-#### For Demo Video Link: [click here](https://drive.google.com/file/d/1-oA630KvQcyz7j_tibO6LIVgW94PTzmc/view?usp=sharing)
-
 As a part of this assignment, I have created three microservices:
 
 1. **authenticationService**
